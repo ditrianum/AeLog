@@ -1,0 +1,97 @@
+object Form1: TForm1
+  Left = 471
+  Height = 230
+  Top = 278
+  Width = 395
+  Caption = 'Atmospheric Electricity Logger 1.0'
+  ClientHeight = 230
+  ClientWidth = 395
+  OnClose = FormClose
+  OnCreate = FormCreate
+  Position = poScreenCenter
+  LCLVersion = '2.0.4.0'
+  Visible = True
+  object btSetup: TButton
+    Left = 310
+    Height = 25
+    Top = 8
+    Width = 75
+    Anchors = [akTop, akRight]
+    Caption = 'Setup...'
+    OnClick = btSetupClick
+    TabOrder = 0
+  end
+  object ListBox1: TListBox
+    Left = 8
+    Height = 181
+    Top = 8
+    Width = 286
+    Anchors = [akTop, akLeft, akRight, akBottom]
+    ClickOnSelChange = False
+    DoubleBuffered = True
+    ExtendedSelect = False
+    ItemHeight = 0
+    ParentDoubleBuffered = False
+    ScrollWidth = 284
+    TabOrder = 1
+    TopIndex = -1
+  end
+  object btStart: TButton
+    Left = 310
+    Height = 25
+    Top = 40
+    Width = 75
+    Anchors = [akTop, akRight]
+    Caption = 'Start'
+    OnClick = btStartClick
+    TabOrder = 2
+  end
+  object btStop: TButton
+    Left = 310
+    Height = 25
+    Top = 72
+    Width = 75
+    Anchors = [akTop, akRight]
+    Caption = 'Stop'
+    OnClick = btStopClick
+    TabOrder = 3
+  end
+  object btClose: TButton
+    Left = 310
+    Height = 25
+    Top = 196
+    Width = 75
+    Anchors = [akRight, akBottom]
+    Caption = 'Close'
+    OnClick = btCloseClick
+    TabOrder = 4
+  end
+  object lbRecordingInfo: TLabel
+    Left = 8
+    Height = 15
+    Top = 206
+    Width = 99
+    Anchors = [akLeft, akBottom]
+    Caption = 'lbRecordingInfo'
+    ParentColor = False
+  end
+  object LazSerial1: TLazSerial
+    Active = False
+    BaudRate = br_____0
+    DataBits = db8bits
+    Parity = pNone
+    FlowControl = fcNone
+    StopBits = sbOne
+    Device = '/dev/ttyS0'
+    RcvLineCRLF = False
+    left = 272
+    top = 192
+  end
+  object BackupTime: TTimer
+    Enabled = False
+    Interval = 600000
+    OnTimer = BackupTimeTimer
+    left = 240
+    top = 192
+  end
+end
