@@ -109,12 +109,14 @@ begin
       CurrentMonth := MonthOf(aTime);
       if CurrentMonth <> LastMonth then
         begin
+          {
           try
             Flush(csvFile);
             CloseFile(csvFile);
           except
             failed := true;
           end;
+          }
           if not failed then
             begin
               try
@@ -159,12 +161,14 @@ end;
 
 procedure TForm1.StartReadData;
 begin
+  {
   try
     Append(csvFile);
   except
     ShowMessage('Error opening ' + FileName);
     exit;
   end;
+  }
 
   LazSerial1.Open;
   LazSerial1.Active := true;
@@ -194,11 +198,11 @@ begin
   LazSerial1.Close;
   LazSerial1.Active := false;
 
-  try
-    CloseFile(csvFile);
-  finally
+  //try
+  //  CloseFile(csvFile);
+  //finally
     lbRecordingInfo.Caption := 'Selected device: ' + LazSerial1.Device;
-  end;
+  //end;
 
   btSetup.Enabled := true;
   btStart.Enabled := true;
@@ -258,9 +262,9 @@ begin
   DefaultFormatSettings.DecimalSeparator := '.';
   Application.UpdateFormatSettings := false;
 
-  LazSerial1.Device:= '/dev/ttyACM0';
   LazSerial1.BaudRate := br__9600;
   LazSerial1.DataBits := db8bits;
+  LazSerial1.Device:= 'COM3';
 
   lbRecordingInfo.Caption := 'Selected device: ' + LazSerial1.Device;
 
@@ -311,16 +315,17 @@ begin
     begin
       value := 0;
       volts := 0;
-
       for i := 1 to size do
         begin
+          if not Terminated then
+            Form1.LazSerial1.SynSer.SetBreak(200);
           DataBuffer := Form1.LazSerial1.SynSer.RecvString(1000);
           // only accept valid floating point values
           if not TextToFloat(pchar(DataBuffer), value) then
             begin
-              // iteration is considered invalid
-              volts := NaN;
-              break;
+             // iteration is invalid
+             volts := NaN;
+             break;
             end;
           volts := volts + value;
         end;
@@ -334,8 +339,10 @@ begin
 
       Form1.CheckArchiveTime(aTime);
       try
+        Append(csvFile);
         writeln(csvFile, DataBuffer);
-        flush(csvFile);
+        Flush(csvFile);
+        Close(csvFile);
       except
         ShowMessage('AeLog could not access log file.');
         break;

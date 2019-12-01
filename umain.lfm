@@ -34,7 +34,6 @@ object Form1: TForm1
     ParentDoubleBuffered = False
     ScrollWidth = 284
     TabOrder = 1
-    TopIndex = -1
   end
   object btStart: TButton
     Left = 310
@@ -70,20 +69,20 @@ object Form1: TForm1
     Left = 8
     Height = 15
     Top = 206
-    Width = 99
+    Width = 85
     Anchors = [akLeft, akBottom]
     Caption = 'lbRecordingInfo'
     ParentColor = False
   end
   object LazSerial1: TLazSerial
     Active = False
-    BaudRate = br_____0
+    BaudRate = br__9600
     DataBits = db8bits
     Parity = pNone
     FlowControl = fcNone
     StopBits = sbOne
-    Device = '/dev/ttyS0'
-    RcvLineCRLF = False
+    Device = 'COM3'
+    RcvLineCRLF = True
     left = 272
     top = 192
   end
