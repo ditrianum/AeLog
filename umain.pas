@@ -93,10 +93,9 @@ end;
 { TForm1 }
 
 procedure TForm1.CheckArchiveTime(const aTime: TDateTime);
-{ Only call this procedure if csvFile is open !!! It should archive the file
-  and create a new one. If the renaming/moving fails, an attempt is made to
-  reopen the last csvFile to prevent loss of data. If this attempt fails the
-  program will halt.
+{ Tries to archive the csvFile and create a new one (for the new month).
+  If renaming/moving fails, an attempt is made to reopen the last csvFile
+  to prevent loss of data. If this attempt fails the program will halt.
 }
 var
   aName: string;
