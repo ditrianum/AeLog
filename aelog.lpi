@@ -18,7 +18,7 @@
       <UseVersionInfo Value="True"/>
       <AutoIncrementBuild Value="True"/>
       <MajorVersionNr Value="1"/>
-      <BuildNr Value="60"/>
+      <BuildNr Value="75"/>
       <StringTable CompanyName="Ditrianum" FileDescription="Atmospheric Electricity Logger" InternalName="aelog" OriginalFilename="aelog" ProductName="AeLog" ProductVersion="1.0"/>
     </VersionInfo>
     <BuildModes Count="1">

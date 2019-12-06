@@ -192,7 +192,8 @@ begin
   lbRecordingInfo.Caption := 'Device stopping: ' + LazSerial1.Device;
 
   ReadDataThread.Terminate;
-  ReadDataThread.WaitFor;
+  // ReadDataThread.WaitFor;
+  Sleep(1000);
   ReadDataThread := nil;
 
   LazSerial1.Close;
@@ -264,7 +265,12 @@ begin
 
   LazSerial1.BaudRate := br__9600;
   LazSerial1.DataBits := db8bits;
-  LazSerial1.Device:= 'COM3';
+
+  {$if defined(windows)}
+    LazSerial1.Device:= 'COM1';
+  {$else}
+    LazSerial1.Device:= '/dev/ttyACM0';
+  {$ifend}
 
   lbRecordingInfo.Caption := 'Selected device: ' + LazSerial1.Device;
 
@@ -315,19 +321,19 @@ begin
     begin
       value := 0;
       volts := 0;
+
       for i := 1 to size do
         begin
-          if not Terminated then
-            Form1.LazSerial1.SynSer.SetBreak(200);
           DataBuffer := Form1.LazSerial1.SynSer.RecvString(1000);
-          // only accept valid floating point values
-          if not TextToFloat(pchar(DataBuffer), value) then
+          if (not TextToFloat(pchar(DataBuffer), value)) or Terminated then
             begin
-             // iteration is invalid
-             volts := NaN;
+             volts := Nan;
              break;
             end;
           volts := volts + value;
+          {$if defined(windows)}
+            Form1.LazSerial1.SynSer.SetBreak(200);
+          {$ifend}
         end;
 
       aTime := NowUTC;

@@ -9,7 +9,7 @@
         <IsPartOfProject Value="True"/>
         <TopLine Value="11"/>
         <CursorPos X="36" Y="32"/>
-        <UsageCount Value="82"/>
+        <UsageCount Value="116"/>
         <Loaded Value="True"/>
       </Unit0>
       <Unit1>
@@ -20,9 +20,10 @@
         <ResourceBaseClass Value="Form"/>
         <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
-        <TopLine Value="305"/>
-        <CursorPos X="32" Y="324"/>
-        <UsageCount Value="82"/>
+        <TopLine Value="321"/>
+        <CursorPos X="13" Y="352"/>
+        <FoldState Value=" T3ie053196"/>
+        <UsageCount Value="116"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit1>
@@ -32,28 +33,28 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="211"/>
         <CursorPos Y="229"/>
-        <UsageCount Value="7"/>
+        <UsageCount Value="4"/>
       </Unit2>
       <Unit3>
         <Filename Value="/usr/share/lazarus/2.0.4/lcl/include/control.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="2901"/>
         <CursorPos Y="2915"/>
-        <UsageCount Value="10"/>
+        <UsageCount Value="7"/>
       </Unit3>
       <Unit4>
         <Filename Value="/usr/share/lazarus/2.0.4/lcl/include/application.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="1267"/>
         <CursorPos Y="1283"/>
-        <UsageCount Value="10"/>
+        <UsageCount Value="7"/>
       </Unit4>
       <Unit5>
         <Filename Value="/usr/share/lazarus/2.0.4/lcl/interfaces/gtk2/gtk2widgetset.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="2359"/>
         <CursorPos X="5" Y="2365"/>
-        <UsageCount Value="10"/>
+        <UsageCount Value="7"/>
       </Unit5>
       <Unit6>
         <Filename Value="../../pkg/LazSerial/lazserial.pas"/>
@@ -61,7 +62,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="214"/>
         <CursorPos X="17" Y="225"/>
-        <UsageCount Value="10"/>
+        <UsageCount Value="7"/>
       </Unit6>
       <Unit7>
         <Filename Value="umain.lfm"/>
@@ -70,7 +71,7 @@
         <ExtraEditor1>
           <EditorIndex Value="2"/>
         </ExtraEditor1>
-        <UsageCount Value="10"/>
+        <UsageCount Value="7"/>
         <DefaultSyntaxHighlighter Value="LFM"/>
       </Unit7>
     </Units>

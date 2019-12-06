@@ -9,7 +9,7 @@ object Form1: TForm1
   OnClose = FormClose
   OnCreate = FormCreate
   Position = poScreenCenter
-  LCLVersion = '2.0.4.0'
+  LCLVersion = '2.0.6.0'
   Visible = True
   object btSetup: TButton
     Left = 310
@@ -34,6 +34,7 @@ object Form1: TForm1
     ParentDoubleBuffered = False
     ScrollWidth = 284
     TabOrder = 1
+    TopIndex = -1
   end
   object btStart: TButton
     Left = 310
@@ -68,8 +69,8 @@ object Form1: TForm1
   object lbRecordingInfo: TLabel
     Left = 8
     Height = 15
-    Top = 206
-    Width = 85
+    Top = 200
+    Width = 99
     Anchors = [akLeft, akBottom]
     Caption = 'lbRecordingInfo'
     ParentColor = False
